@@ -1,0 +1,138 @@
+{
+	"info": {
+		"_postman_id": "ee672ea7-d2d5-4d52-a561-fb599c1a7013",
+		"name": "OPSWAT",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3125113"
+	},
+	"item": [
+		{
+			"name": "Get Hash",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/hash/{{hash}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hash",
+						"{{hash}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get File",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/file/{{dataId}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"file",
+						"{{dataId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "apikey",
+						"value": "{{apikey}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "multipart/form-data",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "test.file",
+							"type": "file",
+							"src": "/Users/robin/Ondot/sandbox/personal/OpswatFileScanner/test.log"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{baseUrl}}/file",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"file"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "apikey",
+			"value": "7bce369df32039143aa3c205c609e022",
+			"type": "string"
+		},
+		{
+			"key": "baseUrl",
+			"value": "https://api.metadefender.com/v4",
+			"type": "string"
+		},
+		{
+			"key": "hash",
+			"value": "1c6185856a19e3d2cdccb747eb089d55",
+			"type": "string"
+		},
+		{
+			"key": "dataId",
+			"value": "bzIyMDgwOVJGTFkxUEZDVXZzTFZNRy0tMlZy",
+			"type": "string"
+		}
+	]
+}
