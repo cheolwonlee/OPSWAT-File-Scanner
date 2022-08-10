@@ -23,6 +23,13 @@ public class RestApiClientService {
     @Autowired
     private OpswatConfigurations opswatConfigurations;
 
+
+    /**
+     * @param hash
+     * @return ResponseEntity<String>
+     * @throws ApiException
+     * calls GET /hash/{hash} API to get results of a hash value of a file
+     */
     public ResponseEntity<String> getHashResult(String hash) throws ApiException {
         try{
             URI uri = new URI(opswatConfigurations.baseUrl+ CommonUriPath.HASH(hash));
@@ -32,6 +39,12 @@ public class RestApiClientService {
         }
     }
 
+    /**
+     * @param dataId
+     * @return ResponseEntity<String>
+     * @throws ApiException
+     * calls GET /file/{dataId} API to get results of a dataId value of a file
+     */
     public ResponseEntity<String> getFileResult(String dataId) throws ApiException{
         try{
             URI uri = new URI(opswatConfigurations.baseUrl+ CommonUriPath.FILE(dataId));
@@ -41,6 +54,13 @@ public class RestApiClientService {
         }
     }
 
+
+    /**
+     * @param file
+     * @return ResponseEntity<String>
+     * @throws ApiException
+     * calls POST /file API to upload file to sandbox
+     */
     public ResponseEntity<String> postFile(File file) throws ApiException{
         try{
             URI uri = new URI(opswatConfigurations.baseUrl+ CommonUriPath.FILE);
