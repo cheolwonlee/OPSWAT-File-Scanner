@@ -4,9 +4,10 @@ import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.RequestPart;
 
+import java.io.File;
 import java.net.URI;
 import java.util.Map;
 
@@ -17,6 +18,6 @@ public interface RestApiClient {
     ResponseEntity<String> getScanReports(URI baseUrl, @RequestHeader Map<String, String> headerMap);
 
     @PostMapping(consumes = "multipart/form-data", produces = "application/json")
-    ResponseEntity<String> postAnalyzeFile(URI baseUrl, @RequestHeader Map<String, String> headerMap, @RequestBody Object request);
+    ResponseEntity<String> postAnalyzeFile(URI baseUrl, @RequestHeader Map<String, String> headerMap,  @RequestPart(name = "file") File file);
 
 }

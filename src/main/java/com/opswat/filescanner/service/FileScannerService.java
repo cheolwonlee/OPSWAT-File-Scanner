@@ -1,5 +1,5 @@
 package com.opswat.filescanner.service;
 
 public interface FileScannerService {
-    void scanFile();
+    void scanFiles(String filePath);
 }
